@@ -1,0 +1,15 @@
+{
+  "name": "orangetesting-cypress",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "cy:open": "cypress open",
+    "cy:run": "cypress run",
+    "cy:run:chrome": "cypress run --browser chrome",
+    "cy:run:headed": "cypress run --headed --browser chrome"
+  },
+  "devDependencies": {
+    "cypress": "^14.5.1",
+    "dotenv": "^17.2.3"
+  }
+}
