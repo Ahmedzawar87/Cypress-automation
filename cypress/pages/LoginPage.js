@@ -1,21 +1,32 @@
-class LoginPage {
-  elements = {
-    usernameInput: () => cy.get('input[name="username"]'),
-    passwordInput: () => cy.get('input[name="password"]'),
-    loginButton: () => cy.get('button[type="submit"]'),
-    errorMessage: () => cy.get('.oxd-alert-content-text')
+// cypress/pages/LoginPage.js
+
+export default class LoginPage {
+  usernameInput() {
+    return cy.get('input[name="username"]');
   }
 
-  visit() {
-    cy.visit(Cypress.env('BASE_URL'))
+  passwordInput() {
+    return cy.get('input[name="password"]');
+  }
+
+  loginButton() {
+    return cy.get('button[type="submit"]');
+  }
+
+  errorMessage() {
+    return cy.get(".oxd-alert-content-text");
+  }
+
+  open() {
+    cy.visit("/web/index.php/auth/login", { failOnStatusCode: false });
+    this.usernameInput().should("be.visible");
   }
 
   login(username, password) {
-    this.elements.usernameInput().type(username)
-    this.elements.passwordInput().type(password)
-    this.elements.loginButton().click()
+    this.usernameInput().clear().type(username);
+    this.passwordInput().clear().type(password, { log: false });
+    this.loginButton().click();
   }
 }
 
-export default LoginPage
 

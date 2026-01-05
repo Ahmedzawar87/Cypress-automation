@@ -1,12 +1,16 @@
 {
-  "name": "orangetesting-cypress",
+  "name": "orangehrm-cypress",
   "version": "1.0.0",
-  "private": true,
+  "description": "Cypress automation framework using POM for OrangeHRM",
   "scripts": {
     "cy:open": "cypress open",
     "cy:run": "cypress run",
-    "cy:run:chrome": "cypress run --browser chrome",
-    "cy:run:headed": "cypress run --headed --browser chrome"
+
+    "cy:dev": "set ENV=dev && cypress run",
+    "cy:qa": "set ENV=qa && cypress run",
+    "cy:prod": "set ENV=prod && cypress run",
+
+    "cy:dev:open": "set ENV=dev && cypress open"
   },
   "devDependencies": {
     "cypress": "^14.5.1",
